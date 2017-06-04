@@ -4,14 +4,10 @@
 
 #include <cstdlib>
 #include <unistd.h>
-#include <string>
-//#include <fstream>
-//#include <algorithm>
-#include <sstream>
+#include <algorithm>
 #include <stdio.h>
 #include "ship.h"
 #include "load.h"
-using namespace std;
 
 
  /*!
@@ -74,6 +70,7 @@ class CBack {
 		* @param fileVect vector of structs that contains set of map
 		* @param cntFileObjs total count of obstacles per map
 		* @param end time when game will end
+		* @return True when successfuly loaded file
 		*/
 		bool getFile(vector<LOAD> & fileVect, 
 					 int & cntFileObjs,
@@ -94,8 +91,10 @@ class CBack {
 						const char & printChar)const;
 		
 	private:
+
 		//! nickname of player
 		char c_nickname[20];
+
 		//! name of file that contains formated data for map
 		char c_mapName[20];
 };

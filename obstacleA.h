@@ -24,6 +24,7 @@ class CObstacleA : public CObstacle {
 		/*!
 		* Move obstacle in its defined direction
 		* @param cntTime object that represents time
+		* @return True if move was successful
 		*/
 		virtual bool moveO(CTimer & cntTime);
 };

@@ -21,31 +21,38 @@ class CTimer {
 		void addTime();
 
 		/*
-		* Returns string in format X:XX
+		* Makes string from c_min and c_sec
+		* @return String of time in format X:XX
 		*/
 		string printTime();
 
 		/*
-		* Returns miliseconds
+		* Gives milliseconds of current time
+		* @return c_msec
 		*/
 		int getMsec();
 
 		/*
-		* Returns current play time in seconds
+		* Gives current playtime
+		* @return playtime in seconds
 		*/
 		int getPlaytime();
 
 		/*!
-		* Returns current time + plusT in seconds
+		* Gives seconds increased by plusT
 		* @param plusT time in seconds
+		* @return current time + plusT in seconds
 		*/
 		int endTime(const int & plusT);
 
 	private:
+
 		//! representing minutes
 		int c_min;
+		
 		//! representing seconds
 		int c_sec;
+		
 		//! representing miliseconds
 		int c_msec;
 };

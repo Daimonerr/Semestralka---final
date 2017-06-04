@@ -24,12 +24,15 @@ class CObstacleC : public CObstacle {
 		/*!
 		* Move obstacle in its defined direction
 		* @param cntTime object that represents time
+		* @return True if move was successful
 		*/
 		virtual bool moveO(CTimer & cntTime);
 	
 	private:
+
 		//! variable that play part in obstacle move
 		int c_direction;
+		
 		//! decides which way the obstacle goes
 		int c_way;
 };

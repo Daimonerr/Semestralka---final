@@ -1,17 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-//#include <cstdlib>
-//#include <unistd.h>
-//#include <string>
-//#include <fstream>
-//#include <algorithm>
-//#include <sstream>
-//#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 #include "background.h"
-using namespace std;
 
 
 #define BONUSAMMO 1
@@ -50,6 +41,7 @@ class CGame {
 	
 		/*!
 		* Indicates end of the game after level or if health reaches zero points
+		* @return True if health is 0 or playtime=c_end time 
 		*/
 		bool gameOver();
 		
@@ -103,6 +95,7 @@ class CGame {
 		* Compares positions of bullet and all spawned obstacles, if true destroys bullet and obstacle
 		* @param bullet struct carrying Y and X positions of bullet
 		* @param index represents position of inserted bullet in vector
+		* @return True when bullet hits obstacle
 		*/
 		bool hitBullet(YXPART & bullet, 
 					   const int & index);
@@ -111,6 +104,7 @@ class CGame {
 		* Compares positions of inserted ship collision point and all spawned obstacles
 		* if true lowers health and destroys obstacle
 		* @param shipCPoint collision point of ship
+		* @return True when collision point of ship hits obstacle
 		*/
 		bool hitShip(YXPART & shipCPoint);
 
@@ -130,38 +124,55 @@ class CGame {
 		
 		//! vector of pointers to allocated obstacles, stores obstacleA,obstacleB,obstacleC
 		vector<CObstacle*> obstacles;
+
 		//! vector of currently active bullets
 		vector<CBullet> ammo;
+		
 		//! map vector of structs that contain data about times, positions and types of obstacles
 		vector<LOAD> map;
+		
 		//! object of class that represents time in game cycle
 		CTimer timer;
+		
 		//! object that represents ship	
 		CShip battleShip;
+		
 		//! object that sets background of the game (interactive menus, reads data from files, draws map and utilities)
 		CBack background;			
+		
 		//! currently spawned obstacles
 		int c_crntObst;
+		
 		//! total count of obsacles per map
 		int c_cntFileObjs;
+		
 		//! players score
 		int c_score;
+		
 		//! healths of ship
 		int c_health;
+		
 		//! remaining not yet spawned obstacles
 		int c_remainObst;
+		
 		//! bullets in mag
 		int c_mag;
+		
 		//! represents bonus (0 = not active)
 		int c_bonus;
+		
 		//! time of bonus end (when playtime reaches this time, then bonus will end)
 		int c_bonusTime;
+		
 		//! count of currently existing bulets
 		int c_cntBullets;
+		
 		//! time of reload (when playtime reaches this time, then gun will reload)
 		int c_reloadT;
+		
 		//! indicates if ship is currently reloading
 		bool c_isReloading;
+		
 		//! end of the game (when playtime reaches this time, then game will end)
 		int c_end;		
 };

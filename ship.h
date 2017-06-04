@@ -2,7 +2,6 @@
 #define SHIP_H
 
 #include "bullet.h"
-using namespace std;
 
 /*!
 * Inherited class representing flying ship
@@ -16,14 +15,16 @@ class CShip : public CObject {
 		CShip();
 
 		/*!
-		* Returns bullet with posY and posX of main gun
+		* Makes new bullet
+		* @return Returns bullet with posY and posX of main gun
 		*/
 		CBullet newBullet();
 
 		/*!
-		* Returns bullet with posY and posX
+		* Makes new bullet dependable on offsets
 		* @param offsetY offset Y from core of the ship
 		* @param offsetX offset X from core of the ship
+		* @return Returns bullet with posY+offsetY and posX+offsetX
 		*/
 		CBullet newBullet(const int & offsetY, 
 						  const int & offsetX);
@@ -49,7 +50,8 @@ class CShip : public CObject {
 		void moveDown();
 
 		/*!
-		* Always returns false, not used, used for obstacles
+		* Blind method
+		* @return Always returns false, not used, used for obstacles
 		*/
 		virtual bool isCollision()const;
 };

@@ -21,11 +21,13 @@ class CBullet : public CObject {
 
 		/*!
 		* Moves up with bullet 
+		* @return True if move was successful
 		*/
 		virtual bool moveO();
 
 		/*!
-		* Returns true if bullet is about to fly out of the map
+		* Tells if object is about to collide
+		* @return True bullet cant move further
 		*/
 		virtual bool isCollision()const;
 };

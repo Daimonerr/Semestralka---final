@@ -2,7 +2,7 @@
 #define LOAD_H
 
 /*!
-* Struct representing spawning information of obstacle 
+* Struct representing spawning information about obstacle 
 */
 struct LOAD{
 
@@ -20,12 +20,16 @@ struct LOAD{
 	
 	//! Y starting position
 	int y;
+
 	//! X starting position
 	int x;
+
 	//! spawning time
 	int time;
+
 	//! speed
 	int sp;
+
 	//! obstacle type
 	char type;
 };

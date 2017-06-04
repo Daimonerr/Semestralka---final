@@ -19,8 +19,10 @@ class YXPART {
 		
 		//! offset Y from core  
 		int offsY;
+
 		//! offset X from core
 		int offsX;
+		
 		//! char representing part
 		char offsChar;
 };
