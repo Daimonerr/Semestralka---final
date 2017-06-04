@@ -3,7 +3,7 @@
 CGame::CGame(): c_crntObst(0), c_cntFileObjs(0),  c_score(0), 
 				c_health(3), c_remainObst(0), c_mag(10),
 				c_bonus(0), c_bonusTime(0), c_cntBullets(0), 
-				c_reloadT(0), c_isReloading(false)
+				c_reloadT(0), c_isReloading(false), c_end(0)
 {
 	initscr();	
 	srand(time(NULL));
@@ -38,7 +38,7 @@ void CGame::moveBullets()
 void CGame::runGame()
 {
 
-	background.startMenu(map, c_cntFileObjs);
+	background.startMenu(map, c_cntFileObjs, c_end);
 	c_remainObst = c_cntFileObjs;
 	background.drawMap();
 
@@ -49,7 +49,7 @@ void CGame::runGame()
 	keypad(stdscr, true);
 	
 
-	while( ! gameOver())
+	while( ! gameOver() )
 	{
 
 		battleShip.printO();
@@ -72,8 +72,6 @@ void CGame::runGame()
 		gameControll();
 		background.printUtilities(c_score, c_remainObst, c_health, timer, c_isReloading, c_mag, c_bonus);
 		timer.addTime();
-		if(timer.getPlaytime() == 10)
-			break;
 	}
 
 	background.gameEnding(c_score);
@@ -166,23 +164,19 @@ void CGame::gameControll()
 	switch (getch())
 	{
 		case KEY_UP:
-			battleShip
-.moveUp();
+			battleShip.moveUp();
 			break;
 
 		case KEY_DOWN:
-			battleShip
-.moveDown();
+			battleShip.moveDown();
 			break;
 
 		case KEY_LEFT:
-			battleShip
-.moveLeft();
+			battleShip.moveLeft();
 			break;
 
 		case KEY_RIGHT:
-			battleShip
-.moveRight();
+			battleShip.moveRight();
 			break;
 		
 		case 'f':
@@ -190,15 +184,12 @@ void CGame::gameControll()
 				break;
 			if (c_mag != 0)
 			{
-				ammo.push_back(battleShip
-		.newBullet());
+				ammo.push_back(battleShip.newBullet());
 				c_cntBullets++;
 
 				if (c_bonus == BONUSGUNS){
-					ammo.push_back(battleShip
-			.newBullet(0,-3));
-					ammo.push_back(battleShip
-			.newBullet(0,3));
+					ammo.push_back(battleShip.newBullet(0,-3));
+					ammo.push_back(battleShip.newBullet(0,3));
 					c_cntBullets += 2;
 				}
 
@@ -279,8 +270,9 @@ void CGame::spawnObstacles()
 
 bool CGame::gameOver()
 {
-	if ( c_health == 0)
+	if ( c_health == 0 || timer.getPlaytime() == c_end)
 		return true;
+
 	return false;
 }
 

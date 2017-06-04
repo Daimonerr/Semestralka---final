@@ -60,7 +60,8 @@ class CGame {
 		int c_bonusTime;
 		int c_cntBullets;
 		int c_reloadT;
-		bool c_isReloading;		
+		bool c_isReloading;
+		int c_end;		
 };
 
 #endif

@@ -20,7 +20,7 @@ void CBack::drawMap()const
 	attron(A_UNDERLINE);
 	
 	mvprintw(3,66,"TIME");
-	mvprintw(7,65,"REMAIN");
+	mvprintw(7,66,"REMAIN");
 	mvprintw(11,66,"SCORE");
 	mvprintw(15,66,"BONUS");
 
@@ -33,7 +33,7 @@ void CBack::drawMap()const
 }
 
 
-void CBack::startMenu(vector<LOAD> & fileVect, int & cntFileObjs)
+void CBack::startMenu(vector<LOAD> & fileVect, int & cntFileObjs, int & end)
 {
 
 	printw("Enter your nickname: ");
@@ -73,7 +73,7 @@ void CBack::startMenu(vector<LOAD> & fileVect, int & cntFileObjs)
 	mvprintw(39,10,"R               - to reload");
 	move(11,22);
 
-	while ( ! getFile(fileVect,cntFileObjs))
+	while ( ! getFile(fileVect,cntFileObjs, end))
 	{
 		mvprintw(11,22,"                        ");
 		mvprintw(13,17,"Invalid file. Try again.");
@@ -154,7 +154,9 @@ void CBack::pauseGame()
 	nodelay(stdscr, true);
 }
 
-bool CBack::getFile(vector<LOAD> & fileVect, int & cntFileObjs)
+bool CBack::getFile(vector<LOAD> & fileVect, 
+					int & cntFileObjs,
+					int & end)
 {
 	int controll,x,time,speed;
 	char type;
@@ -176,7 +178,7 @@ bool CBack::getFile(vector<LOAD> & fileVect, int & cntFileObjs)
 			fileVect.clear();
 			return false;
 		}
-		
+
 		LOAD tmp(x,time,speed,type);
 		fileVect.push_back(tmp);
 		cntFileObjs++;
@@ -187,6 +189,8 @@ bool CBack::getFile(vector<LOAD> & fileVect, int & cntFileObjs)
 	if (cntFileObjs == 0)
 		return false;
 
+
+	end = fileVect[cntFileObjs-1].time + 25;
 	fclose(mapFile);
 
 	return true;

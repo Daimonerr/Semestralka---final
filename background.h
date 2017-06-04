@@ -18,7 +18,8 @@ class CBack {
 		CBack();
 		void drawMap()const;
 		void startMenu(vector<LOAD> & fileVect, 
-					   int & cntFileObjs);
+					   int & cntFileObjs,
+					   int & end);
 		void printUtilities(const int & score, 
 							const int & remainObst, 
 							const int & health,
@@ -29,7 +30,8 @@ class CBack {
 		void gameEnding(const int & score);
 		void pauseGame();
 		bool getFile(vector<LOAD> & fileVect, 
-					 int & cntFileObjs);
+					 int & cntFileObjs,
+					 int & end);
 		void drawSquare(const int & height, 
 						const int & width, 
 						const int & startY, 

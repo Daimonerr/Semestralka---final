@@ -3,9 +3,9 @@
 
 struct LOAD{
 	LOAD();
-	LOAD(const int & a, 
-		 const int & tik, 
-		 const int & speedo, 
+	LOAD(const int & stX, 
+		 const int & stTime, 
+		 const int & stSpeed, 
 		 const char & typeO);
 	int y;
 	int x;
