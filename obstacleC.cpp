@@ -1,7 +1,11 @@
 #include "obstacleC.h"
 
-CObstacleC::CObstacleC(const int & y, const int & x, const char & cChar, const int & sp):CObstacle(y,x,cChar), c_obstSpeed(sp), c_direction(0), c_way(0)
+CObstacleC::CObstacleC(const int & y, 
+					   const int & x, 
+					   const char & cChar, 
+					   const int & sp): CObstacle(y,x,cChar), c_direction(0), c_way(0)
 {
+	c_obstSpeed = sp;
 	buildOffset(-2,-1, '/');
 	buildOffset(-2,0, '#');
 	buildOffset(-2,1, '\\');

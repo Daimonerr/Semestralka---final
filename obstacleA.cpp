@@ -1,8 +1,12 @@
 #include "obstacleA.h"
 
 
-CObstacleA::CObstacleA(const int & y, const int & x, const char & cChar, const int & sp):CObstacle(y,x,cChar), c_obstSpeed(sp)
+CObstacleA::CObstacleA(const int & y, 
+					   const int & x, 
+					   const char & cChar, 
+					   const int & sp): CObstacle(y,x,cChar)
 {
+	c_obstSpeed = sp;	
 	buildOffset(-1,-1, '#');
 	buildOffset(-1,0, '#');
 	buildOffset(-1,1, '#');

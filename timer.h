@@ -5,7 +5,6 @@
 using namespace std;
 
 
-
 class CTimer {
 	public:
 		CTimer();
@@ -21,10 +20,5 @@ class CTimer {
 		int c_sec;
 		int c_msec;
 };
-
-
-
-
-
 
 #endif

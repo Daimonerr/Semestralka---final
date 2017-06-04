@@ -1,6 +1,9 @@
 #include "game.h"
 
-CGame::CGame(): c_cntBullets(0), c_score(0), c_crntObst(0), c_health(3), c_remainObst(0), c_mag(10), c_isReloading(false), c_reloadT(0), c_bonus(0), c_bonusTime(0), c_cntFileObjs(0)
+CGame::CGame(): c_crntObst(0), c_cntFileObjs(0),  c_score(0), 
+				c_health(3), c_remainObst(0), c_mag(10),
+				c_bonus(0), c_bonusTime(0), c_cntBullets(0), 
+				c_reloadT(0), c_isReloading(false)
 {
 	initscr();	
 	srand(time(NULL));
@@ -44,19 +47,12 @@ void CGame::runGame()
 	curs_set(0);
 	nodelay(stdscr,true);
 	keypad(stdscr, true);
-
-//	LOAD tmp(10,1,10,'C');
-//	map.push_back(tmp);
-//	c_cntFileObjs++;
-
-
-
 	
 
 	while( ! gameOver())
 	{
 
-		BattleShip.printO();
+		battleShip.printO();
 		spawnObstacles();
 
 		moveBullets();
@@ -71,7 +67,7 @@ void CGame::runGame()
 //////////////////////////////////////////////
 		usleep(20000);
 //////////////////////////////////////////////
-		BattleShip.clearO();
+		battleShip.clearO();
 		checkReloading();
 		gameControll();
 		background.printUtilities(c_score, c_remainObst, c_health, timer, c_isReloading, c_mag, c_bonus);
@@ -86,7 +82,7 @@ void CGame::runGame()
 void CGame::checkShip()
 {
 
-	vector<YXPART> shipCPoints(BattleShip.giveCollisionPoints());
+	vector<YXPART> shipCPoints(battleShip.giveCollisionPoints());
 
 	for ( int i = 0; i < 21; i++)
 	{
@@ -128,9 +124,6 @@ void CGame::checkBullets()
 void CGame::reloadMag()
 {
 	c_isReloading = true;
-
-
-//BONUS s bonusem přebíjí
 	c_reloadT = timer.endTime(4);
 
 
@@ -173,19 +166,23 @@ void CGame::gameControll()
 	switch (getch())
 	{
 		case KEY_UP:
-			BattleShip.moveUp();
+			battleShip
+.moveUp();
 			break;
 
 		case KEY_DOWN:
-			BattleShip.moveDown();
+			battleShip
+.moveDown();
 			break;
 
 		case KEY_LEFT:
-			BattleShip.moveLeft();
+			battleShip
+.moveLeft();
 			break;
 
 		case KEY_RIGHT:
-			BattleShip.moveRight();
+			battleShip
+.moveRight();
 			break;
 		
 		case 'f':
@@ -193,12 +190,15 @@ void CGame::gameControll()
 				break;
 			if (c_mag != 0)
 			{
-				ammo.push_back(BattleShip.newBullet());
+				ammo.push_back(battleShip
+		.newBullet());
 				c_cntBullets++;
 
 				if (c_bonus == BONUSGUNS){
-					ammo.push_back(BattleShip.newBullet(0,-3));
-					ammo.push_back(BattleShip.newBullet(0,3));
+					ammo.push_back(battleShip
+			.newBullet(0,-3));
+					ammo.push_back(battleShip
+			.newBullet(0,3));
 					c_cntBullets += 2;
 				}
 

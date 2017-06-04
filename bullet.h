@@ -6,11 +6,11 @@
 
 class CBullet : public CObject {
 	public:
-		CBullet(const int & y, const int & x, const char & bChar);
+		CBullet(const int & y, 
+				const int & x, 
+				const char & bChar);
 		virtual bool moveO();
 		virtual bool isCollision()const;
 };
-
-
 
 #endif

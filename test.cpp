@@ -1,7 +1,4 @@
-
 #include "game.h"
-
-#include <vector>
 int main ()
 {
 

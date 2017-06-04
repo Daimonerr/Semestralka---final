@@ -176,6 +176,7 @@ bool CBack::getFile(vector<LOAD> & fileVect, int & cntFileObjs)
 			fileVect.clear();
 			return false;
 		}
+		
 		LOAD tmp(x,time,speed,type);
 		fileVect.push_back(tmp);
 		cntFileObjs++;

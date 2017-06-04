@@ -1,12 +1,5 @@
 #include "object.h"
 
-YXPART::YXPART(const int & y, const int & x, const char & c)
-{
-	offsY = y;
-	offsX = x;
-	offsChar = c;
-}
-
 CObject::CObject():c_posY(0), c_posX(0), c_coreChar('#'), c_offsLen(0)
 {}
 

@@ -1,7 +1,7 @@
 #include "obstacle.h"
 
 
-CObstacle::CObstacle(const int & y, const int & x, const char & cChar):CObject(y,x,cChar)
+CObstacle::CObstacle(const int & y, const int & x, const char & cChar):CObject(y,x,cChar), c_obstSpeed(0)
 {}
 
 bool CObstacle::moveO(CTimer & cntTime)
