@@ -174,6 +174,7 @@ bool CBack::getFile(vector<LOAD> & fileVect,
 	{
 		if (controll < 3)
 		{
+			cntFileObjs=0;
 			fclose(mapFile);
 			fileVect.clear();
 			return false;
