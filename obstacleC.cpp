@@ -19,11 +19,11 @@ CObstacleC::CObstacleC(const int & y,
 
 bool CObstacleC::moveO(CTimer & cntTime)
 {	
+	//! based on ms time and speed calculates when it will move
 	if (cntTime.getMsec() % c_obstSpeed == 0 && cntTime.getMsec() != 0)
 	{	
 		if (isCollision())
-			return false;
-		
+			return false;		
 		clearO();
 
 		switch (c_way)
@@ -42,6 +42,7 @@ bool CObstacleC::moveO(CTimer & cntTime)
 			break;
 		}
 
+		//! helps to reset c_way so it is periodical
 		c_direction++;
 		if (c_direction % 4 == 0){
 			c_way++; c_direction=0;
@@ -51,7 +52,6 @@ bool CObstacleC::moveO(CTimer & cntTime)
 			c_way=0;
 
 		printO();
-		
 	}
 	
 	return true;

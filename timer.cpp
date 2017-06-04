@@ -22,17 +22,9 @@ void CTimer::addTime()
 
 string CTimer::printTime()
 {
-
 	if ( c_sec <= 9 )
-		return to_string(c_min) + ":" + "0" + to_string(c_sec); //+ ":" + to_string(c_msec);
-	return to_string(c_min) + ":" + to_string(c_sec); //+ ":" + to_string(c_msec);
-}
-
-void CTimer::resetTime()
-{
-	c_msec=0;
-	c_sec=0;
-	c_min=0;
+		return to_string(c_min) + ":" + "0" + to_string(c_sec);
+	return to_string(c_min) + ":" + to_string(c_sec);
 }
 
 int CTimer::getMsec()
@@ -45,7 +37,7 @@ int CTimer::getPlaytime()
 	return (c_min*60)+c_sec;
 }
 
-int CTimer::endTime(const int & reloadT)
+int CTimer::endTime(const int & plusT)
 {
-	return (c_min*60)+c_sec+reloadT;
+	return (c_min*60)+c_sec+plusT;
 }

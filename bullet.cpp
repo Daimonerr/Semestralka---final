@@ -5,7 +5,9 @@ CBullet::CBullet(const int & y, const int & x, const char & bChar): CObject(y,x,
 
 bool CBullet::moveO()
 {
+	//! clears old position of object
 	clearO();
+	//! checks if bullet isnt at the edge of map
 	if ( ! isCollision())
 	{
 		c_posY -= 1;	

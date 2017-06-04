@@ -54,3 +54,9 @@ Nickname: lel   Map: level1.txt   Score: 0
 Nickname: lel   Map: level1.txt   Score: 60
 Nickname: llel   Map: level1.txt   Score: 0
 Nickname: lel   Map: level1.txt   Score: 80
+Nickname: lel   Map: level1.txt   Score: 60
+Nickname: le   Map: level1.txt   Score: 80
+Nickname: lel   Map: level1.txt   Score: 740
+Nickname: lel   Map: level1.txt   Score: 500
+Nickname: lel   Map: level1.txt   Score: 560
+Nickname: lel   Map: level1.txt   Score: 560

@@ -19,6 +19,7 @@ CObstacleB::CObstacleB(const int & y,
 
 bool CObstacleB::moveO(CTimer & cntTime)
 {	
+	//! based on ms time and speed calculates when it will move
 	if (cntTime.getMsec() % c_obstSpeed == 0 && cntTime.getMsec() != 0)
 	{	
 		if (isCollision())
@@ -35,6 +36,7 @@ bool CObstacleB::moveO(CTimer & cntTime)
 
 		printO();
 
+		//! changing c_flip 
 		c_direction++;
 		if (c_direction == 3 && c_flip == 1)
 		{

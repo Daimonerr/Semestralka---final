@@ -23,12 +23,14 @@ bool CObstacle::isCollision()const
 
 bool CObstacle::collide(const int & y, const int & x)
 {
+	//! compare with core first
 	if (c_posY == y && c_posX == x)
 	{
 		clearO();
 		return true;
 	}
 
+	//! compare with other parts (through offset)
 	for (int i = 0; i < c_offsLen; i++)
 	{
 		if ( (c_posY + offset[i].offsY) == y && (c_posX + offset[i].offsX ) == x)

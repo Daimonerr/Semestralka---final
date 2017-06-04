@@ -1,7 +1,5 @@
 #include "object.h"
 
-CObject::CObject():c_posY(0), c_posX(0), c_coreChar('#'), c_offsLen(0)
-{}
 
 CObject::CObject(const int & y, const int & x, const char & coreC): c_posY(y),c_posX(x),c_coreChar(coreC), c_offsLen(0)
 {}
@@ -9,11 +7,12 @@ CObject::CObject(const int & y, const int & x, const char & coreC): c_posY(y),c_
 
 vector<YXPART> CObject::giveCollisionPoints()
 {
-
+	//! first push_back core itself
 	vector<YXPART> tmp;
 	YXPART core(c_posY,c_posX, c_coreChar);
 	tmp.push_back(core);
 	
+	//! then push_back others parts by adding offsets to core positions
 	for (int i = 0; i < c_offsLen; i++)
 	{
 		YXPART add(offset[i].offsY+c_posY,offset[i].offsX+c_posX, 'X');

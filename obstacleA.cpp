@@ -17,6 +17,7 @@ CObstacleA::CObstacleA(const int & y,
 
 bool CObstacleA::moveO(CTimer & cntTime)
 {	
+	//! based on ms time and speed calculates when it will move
 	if (cntTime.getMsec() % c_obstSpeed == 0 && cntTime.getMsec() != 0)
 	{	
 		if (isCollision()) 

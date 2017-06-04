@@ -1,9 +1,8 @@
 #include "ship.h"
 
-
-
 CShip::CShip ():CObject(41,28,'A')
 {
+	//! builds visual view of ship around the core of object
 	buildOffset(-1,-1,'/');
 	buildOffset(-1,1,'\\');
 	buildOffset(-1,0,'|');
@@ -36,7 +35,6 @@ CBullet CShip::newBullet()
 
 	return newB;
 }
-
 
 CBullet CShip::newBullet(const int & offsetY, const int & offsetX)
 {
